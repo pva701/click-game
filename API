@@ -1,0 +1,28 @@
+-> join_request(numPlayers:int)
+<- join_response(success:boolean, numPlayers:int, playerColor:int)
+[BROADCAST ROOM]
+<- player_joined(playerColor: int)
+
+-> disjoin_request()
+
+<- disjoin()
+
+[BROADCAST ROOM]
+<- player_disjoined(playerColor:int);
+
+[BROADCAST ROOM]
+<- start_countdown(seconds:int)
+
+[BROADCAST ROOM]
+<- start_game(rows:int, cols:int, field:int[][])
+
+-> click_request(x: int, y: int)
+<- click_response(boolean:success, x:int, y:int, newColor:int)
+
+[BROADCAST ROOM]
+<- clicked(x:int, y:int, newColor:int)
+
+<- game_over(scoreGreen: int, scoreRed:int)
+
+
+
